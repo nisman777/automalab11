@@ -1,0 +1,184 @@
+:root{
+  --bg:#1e1e1e; --panel:#252526; --panel2:#2d2d30; --borde:#3c3c3c;
+  --texto:#cccccc; --tenue:#8a8a8a;
+  --azul:#007acc; --azul2:#0e639c; --verde:#4ec9b0; --rojo:#f14c4c; --ambar:#cca700;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%;margin:0}
+body{display:flex;flex-direction:column;background:var(--bg);color:var(--texto);
+  font:13px/1.4 "Segoe UI",system-ui,sans-serif}
+
+
+#cabecera{display:flex;align-items:center;gap:8px;padding:0 14px;height:36px;
+  background:var(--panel);border-bottom:1px solid var(--borde)}
+#cabecera .marca{color:var(--verde);font-weight:600;text-decoration:none}
+#cabecera .sep{color:var(--tenue)}
+main{flex:1;min-height:0;display:flex;flex-direction:column;overflow:auto}
+#pie{display:flex;gap:16px;align-items:center;padding:3px 14px;height:24px;font-size:11px;
+  color:var(--tenue);background:var(--azul2);color:#fff}
+#pie span:nth-child(2){flex:1;text-align:center;opacity:.9}
+
+
+.btn{background:var(--panel2);color:var(--texto);border:1px solid var(--borde);
+  padding:4px 10px;border-radius:3px;font:inherit;cursor:pointer}
+.btn:hover:not(:disabled){border-color:var(--azul)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.primario{background:var(--azul2);border-color:var(--azul2);color:#fff}
+.btn.primario:hover:not(:disabled){background:var(--azul)}
+.btn.peligro{color:var(--rojo)}
+.btn.peligro:hover:not(:disabled){border-color:var(--rojo)}
+
+
+input,select{background:#1b1b1c;color:var(--texto);border:1px solid var(--borde);
+  border-radius:3px;padding:4px 6px;font:inherit;min-width:0}
+input:focus,select:focus,.btn:focus-visible{outline:1px solid var(--azul);outline-offset:0}
+
+
+/* Proyectos */
+a.btn{text-decoration:none;display:inline-block}
+#vista-proyectos{padding:24px 20px;max-width:1000px;width:100%;margin:0 auto}
+.proy-cab{display:flex;align-items:center;gap:8px;margin-bottom:18px}
+.proy-titulo{margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--borde)}
+.proy-titulo h1{margin:0 0 4px;font-size:26px;font-weight:600;color:#fff}
+.proy-titulo p{margin:0;color:var(--tenue)}
+#vista-proyectos > input[type=search]{width:100%;margin-bottom:12px;padding:6px 10px}
+.proy-lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.proy{display:flex;flex-direction:column;gap:12px;padding:14px;background:var(--panel);
+  border:1px solid var(--borde);border-top:3px solid var(--azul);border-radius:4px}
+.proy:hover{border-color:var(--verde)}
+.proy-info{flex:1}
+.proy-nombre{font-size:15px;font-weight:600;color:#fff;overflow-wrap:anywhere;margin-bottom:6px}
+.proy-meta{color:var(--tenue);font-size:12px;line-height:1.6}
+.proy-acciones{display:flex;gap:4px;flex-wrap:wrap}
+.vacio{grid-column:1/-1;color:var(--tenue);padding:36px;text-align:center;
+  border:1px dashed var(--borde);border-radius:4px}
+.falla{background:var(--panel);border:1px solid var(--rojo);padding:16px;border-radius:4px}
+
+
+/* Editor */
+#vista-editor{display:flex;flex-direction:column;flex:1;min-height:0}
+.ed-barra{display:flex;align-items:center;gap:8px;padding:6px 12px;
+  background:var(--panel);border-bottom:1px solid var(--borde)}
+.espacio{flex:1}
+.estado{font-size:12px;color:var(--tenue)}
+.estado.guardado{color:var(--verde)}
+.estado.pendiente{color:var(--ambar)}
+.estado.error{color:var(--rojo)}
+.pestanas{display:flex;background:var(--panel2);border-bottom:1px solid var(--borde)}
+.pestanas button{background:none;border:0;border-bottom:2px solid transparent;
+  color:var(--texto);padding:7px 14px;font:inherit;cursor:pointer}
+.pestanas button.activa{border-bottom-color:var(--azul);color:#fff}
+.pestanas button:disabled{opacity:.35;cursor:default}
+.panel{padding:16px;overflow:auto;flex:1}
+
+
+.rejilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;align-items:start}
+.grupo{border:1px solid var(--borde);border-radius:4px;padding:8px 14px 12px;background:var(--panel);margin:0}
+.grupo legend{padding:0 6px;color:var(--verde)}
+.campo{display:grid;grid-template-columns:170px 1fr;gap:8px;align-items:center;margin:7px 0}
+.campo span{color:var(--tenue)}
+.planta{display:grid;grid-template-columns:1fr 90px 90px auto;gap:6px;margin-bottom:6px}
+.planta.cab{color:var(--tenue);font-size:12px}
+.nota{color:var(--tenue);font-size:12px;margin:8px 0 0}
+
+
+/* Diálogos y avisos */
+dialog.dlg{background:var(--panel);color:var(--texto);border:1px solid var(--azul);
+  border-radius:4px;padding:0;min-width:340px;max-width:520px}
+dialog.dlg::backdrop{background:rgba(0,0,0,.55)}
+dialog.dlg h3{margin:0;padding:10px 14px;font-size:14px;font-weight:500;
+  background:var(--panel2);border-bottom:1px solid var(--borde)}
+.dlg-cuerpo{padding:14px;display:flex;flex-direction:column;gap:8px}
+.dlg-cuerpo p{margin:0}
+.dlg-error{color:var(--rojo);min-height:1em;font-size:12px}
+.dlg-botones{display:flex;justify-content:flex-end;gap:6px;margin-top:6px}
+#toasts{position:fixed;right:14px;bottom:36px;display:flex;flex-direction:column;gap:6px;z-index:50}
+.toast{background:var(--panel2);border:1px solid var(--borde);border-left:3px solid var(--azul);
+  padding:8px 12px;border-radius:3px;max-width:360px}
+.toast.ok{border-left-color:var(--verde)}
+.toast.error{border-left-color:var(--rojo)}
+/* Barra inferior oculta (el HTML y main.js la siguen usando, no borrar) */
+#pie{display:none}
+#toasts{bottom:14px}
+/* ===== Planta (CAD) ===== */
+#panel-planta{padding:0;overflow:hidden;display:flex;flex-direction:column;min-height:0}
+.cad-barra{display:flex;align-items:center;gap:14px;padding:5px 10px;
+  background:var(--panel);border-bottom:1px solid var(--borde)}
+.cad-barra label{display:flex;align-items:center;gap:6px}
+.cad-barra .ayuda{color:var(--tenue);font-size:12px}
+.cad-lienzo{position:relative;flex:1;min-height:0;overflow:hidden;background:#1b1b1c}
+.cad-lienzo canvas{position:absolute;left:0;top:0;width:100%;height:100%;display:block;
+  cursor:crosshair;touch-action:none;outline:none}
+.cad-estado{display:flex;gap:22px;padding:3px 10px;background:var(--panel);
+  border-top:1px solid var(--borde);font:12px Consolas,"Courier New",monospace;color:var(--tenue)}
+.cad-estado .coord{min-width:220px;color:var(--texto)}
+/* ===== Planta: herramientas y barra de comandos ===== */
+.cad-barra{flex-wrap:wrap;row-gap:4px}
+.cad-barra input[type=number]{width:64px}
+.cad-barra .sep-v{width:1px;height:20px;background:var(--borde)}
+.btn.activa{background:var(--azul2);border-color:var(--azul);color:#fff}
+.cmd{border-top:1px solid var(--borde);background:var(--panel)}
+.cmd-historial{height:64px;overflow-y:auto;padding:3px 10px;
+  font:12px Consolas,"Courier New",monospace;color:var(--tenue)}
+.cmd-linea.eco{color:var(--texto)}
+.cmd-linea.ok{color:var(--verde)}
+.cmd-linea.error{color:var(--rojo)}
+.cmd-fila{display:flex;align-items:center;gap:8px;padding:3px 10px;border-top:1px solid var(--borde)}
+.cmd-etiqueta{font:12px Consolas,"Courier New",monospace;color:var(--verde);white-space:nowrap}
+.cmd-entrada{flex:1;font:12px Consolas,"Courier New",monospace}
+/* ===== Planta: selección, mover, copiar, borrar ===== */
+.cad-barra .btn:disabled { opacity: .45; cursor: default; }
+.cad-estado .sel { color: #6cb6ff; font-weight: 600; }
+/* ===== Planta: panel de capas ===== */
+.cad-cuerpo { display: flex; flex: 1; min-height: 0; min-width: 0; }
+.cad-cuerpo .cad-lienzo { flex: 1; min-width: 0; }
+.capas { width: 280px; flex: none; display: flex; flex-direction: column; background: #252526; border-left: 1px solid #3c3c3c; color: #d4d4d4; font-size: 12px; }
+.capas-cab { display: flex; align-items: center; justify-content: space-between; padding: 8px 10px; border-bottom: 1px solid #3c3c3c; }
+.capas-cols, .capa-fila { display: grid; grid-template-columns: 30px 30px 34px 1fr 28px 24px; align-items: center; gap: 4px; padding: 3px 10px; }
+.capas-cols { color: #8a8a8a; font-size: 11px; border-bottom: 1px solid #333; }
+.capas-cols span, .capa-fila > input[type="checkbox"] { justify-self: center; }
+.capas-lista { flex: 1; overflow-y: auto; min-height: 0; }
+.capa-fila { border-bottom: 1px solid #2e2e2f; }
+.capa-fila:hover { background: #2d2d30; }
+.capa-fila.oculta .capa-nombre-ref, .capa-fila.oculta input[type="text"] { opacity: .45; }
+.capa-fila.bloqueada input[type="text"] { font-style: italic; }
+.capa-fila input[type="color"] { width: 30px; height: 20px; padding: 0; border: 1px solid #555; background: none; cursor: pointer; }
+.capa-fila input[type="text"] { width: 100%; min-width: 0; box-sizing: border-box; background: transparent; border: 1px solid transparent; color: inherit; padding: 3px 4px; font-size: 12px; }
+.capa-fila input[type="text"]:hover { border-color: #444; }
+.capa-fila input[type="text"]:focus { border-color: #3d9bff; background: #1e1e1e; outline: none; }
+.capa-cuenta { text-align: right; color: #8a8a8a; }
+.capa-borrar { background: none; border: 0; color: #c86464; font-size: 15px; cursor: pointer; padding: 0; }
+.capa-borrar:disabled { color: #4a4a4a; cursor: default; }
+.capas-pie { padding: 8px 10px; border-top: 1px solid #3c3c3c; display: flex; flex-direction: column; gap: 6px; }
+.capas-elegidos { color: #6cb6ff; }
+.capas-asignar { display: flex; gap: 6px; }
+.capas-asignar select { flex: 1; min-width: 0; }
+.capas-asignar select:disabled, .capas-asignar .btn:disabled { opacity: .45; }
+.capas-nota { margin: 0; padding: 0 10px 10px; color: #8a8a8a; font-size: 11px; line-height: 1.4; }
+/* ===== Planta: botón para ocultar la barra de comandos ===== */
+.btn-barra { background: none; border: 1px solid transparent; color: #8a8a8a; font: inherit; padding: 0 8px; cursor: pointer; border-radius: 3px; }
+.btn-barra:hover { color: #fff; border-color: #3c3c3c; }
+/* ===== Planta: menús desplegables (barra superior) ===== */
+.cad-barra { position: relative; z-index: 20; gap: 8px; }
+.cad-barra .sep-v { margin: 0 4px; }
+.menu { position: relative; }
+.menu-titulo { padding: 4px 12px; }
+.menu-titulo.abierto { background: #094771; border-color: var(--azul); color: #fff; }
+.menu-panel { position: absolute; left: 0; top: 100%; margin-top: 3px; min-width: 250px; max-height: 70vh; overflow-y: auto; padding: 4px; display: flex; flex-direction: column; gap: 1px; background: var(--panel2); border: 1px solid var(--azul); border-radius: 3px; box-shadow: 0 6px 18px rgba(0,0,0,.55); z-index: 40; }
+.menu-panel .btn { display: flex; justify-content: space-between; align-items: center; gap: 28px; width: 100%; text-align: left; background: none; border: 1px solid transparent; border-radius: 2px; padding: 5px 10px; }
+.menu-panel .btn:hover:not(:disabled) { background: #094771; border-color: transparent; }
+.menu-panel .btn.activa { background: var(--azul2); color: #fff; }
+.menu-panel .btn:disabled { opacity: .4; }
+.mi-atajo { color: var(--tenue); font: 11px Consolas,"Courier New",monospace; }
+.menu-panel .btn:hover:not(:disabled) .mi-atajo { color: #cfe8ff; }
+.menu-sep { height: 1px; background: var(--borde); margin: 4px 2px; }
+.menu-nota { padding: 3px 10px 5px; color: var(--tenue); font-size: 11px; }
+/* ===== Planta: barra de estado (abajo) ===== */
+.cad-estado { align-items: center; gap: 18px; white-space: nowrap; }
+.cad-estado .coord { min-width: 190px; }
+.cad-estado .ayuda { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; color: #6f6f6f; font-size: 11px; }
+.cad-interruptores { display: flex; align-items: center; gap: 14px; }
+.cad-estado label { display: flex; align-items: center; gap: 5px; color: var(--texto); cursor: pointer; font: 12px "Segoe UI",system-ui,sans-serif; }
+.cad-estado label .tecla { color: var(--tenue); font-size: 10px; }
+.cad-estado input[type=checkbox] { margin: 0; }
